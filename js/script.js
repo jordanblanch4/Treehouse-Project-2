@@ -57,12 +57,39 @@ function showPage (list, page) {
    functionality to the pagination buttons.
 ***/
 function appendLinks(list) {
-   let pagesNeed = list.length/10;
+   const pageDaddy = document.getElementsByClassName('page');
    let div = document.createElement('div');
+   div.className = 'pagination';
+   pageDaddy.appendChild(div);
+   
+   const ul = document.createElement('ul');
+   div.appendChild(ul);
+   const li = document.createElement(li);
 
-
-
+   const amount = list.length/10;
+   for(let i =0; i<=amount; i++) {
+      li.innterHTML ='<a href="#"';
+      li.textConent = i+1;
+      if(i === 0) {
+         li.className = 'active';
+      }
+      ul.appendChild('li');
+   }
+   const anchor = document.getElemenetBy
+   a.addEventListener('click', (e)=> {
+      const pageLinks = document.querySelectorAll(".pagination a")
+   
+      for(let i=0; i<pageLinks.length; i++) {
+         pageLinks[i].className = '';
+      }
+   let activeClass = event.target;
+   activeClass.className = 'active';
+   showPage(list, event.target.textContent);
+   
+   });
 }
+
+
 
 showPage(listItem, 1);
 appendLinks(listItem);
