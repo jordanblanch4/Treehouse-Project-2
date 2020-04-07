@@ -1,10 +1,11 @@
 
+//Declaring Global Variables for the rest of the code
 const listItem = document.getElementsByClassName('student-item');
 const showItems = 10;
 const page = document.querySelector('.page');
 let currentPage = 1;
 
-
+//a show page function that sets what students to display 
 function showPage (list, page) {
    const startIndex = (page * showItems)-showItems;
    const endIndex = (page * showItems) - 1;
@@ -17,17 +18,18 @@ function showPage (list, page) {
    }
 }
 
-
+//append Links function created the links dynamically
 function appendLinks(list) {
-  
+  //finds the number of pages we need added is math.ciel so that we get a whole number
    const amount = Math.ceil(list.length/showItems);
+   //here we start adding div elemends and creating UI elements
    let div = document.createElement('div');
    page.appendChild(div);
    div.className = 'pagination';
    
    const ul = document.createElement('ul');
    div.appendChild(ul);
-   
+   //loop through the amount of pages creating li elements with their attributes
    for (let i =0; i < amount; i++) {
       const anch = document.createElement('a');
       const li = document.createElement('li');
@@ -43,7 +45,7 @@ function appendLinks(list) {
       }
    
    anch.textContent = i+1;
-   
+   //create event listener to add funcianlity to the links
    div.addEventListener('click', (event) => {
       
       showPage(listItem, parseInt(event.target.textContent));
