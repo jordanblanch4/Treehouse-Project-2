@@ -1,8 +1,8 @@
 
-
-let listItem = document.getElementsByClassName('student-item');
-let showItems = 10;
-const pageDaddy = document.querySelector('.page');
+const listItem = document.getElementsByClassName('student-item');
+const showItems = 10;
+const page = document.querySelector('.page');
+let currentPage = 1;
 
 
 function showPage (list, page) {
@@ -10,19 +10,19 @@ function showPage (list, page) {
    const endIndex = (page * showItems) - 1;
    for (let i=0; i<list.length; i++) {
       if(i >= startIndex && i <= endIndex) {
-         list[i].style.display = ' ';
+         list[i].style.display = 'block';
       } else {
          list[i].style.display = 'none';
    }
-   };
-};
+   }
+}
 
 
 function appendLinks(list) {
   
    const amount = Math.ceil(list.length/showItems);
    let div = document.createElement('div');
-   pageDaddy.appendChild(div);
+   page.appendChild(div);
    div.className = 'pagination';
    
    const ul = document.createElement('ul');
